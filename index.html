@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TikTok Callback</title>
+</head>
+<body>
+  <h2>🎉 授权成功！</h2>
+  <p>复制以下 Code 发给你的后端获取 Access Token：</p>
+  <pre id="code"></pre>
+
+  <script>
+    // 解析 URL 参数中的 code
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const state = params.get('state');
+
+    document.getElementById('code').innerText = `code=${code}\nstate=${state}`;
+
+    // 可选：你也可以在这里自动发请求到你后端（如果你有）
+    // fetch('/api/token-exchange', { method: 'POST', body: JSON.stringify({ code }) })
+  </script>
+</body>
+</html>
